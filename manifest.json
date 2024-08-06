@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "BOT MAX GOLD IA",
+    "description": "Automatize suas tarefas, Aumente sua produtividade e libere seu tempo para o que realmente importa.",
+    "version": "1.0",
+    "icons": {
+        "16": "assets/icon.png",
+        "48": "assets/icon.png",
+        "128": "assets/icon.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "assets/icon.png",
+            "24": "assets/icon.png",
+            "32": "assets/icon.png"
+        },
+        "default_title": "BOT MAX GOLD IA",
+        "default_popup": "popup/popup.html"
+    },
+    "options_page": "options/options.html",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://cachedownload-br.p-content.gambling-malta.com/live/bundles/*",
+                "https://dl-com.c365play.com/live_desktop/bundles/*",
+                "https://cachedownload-swisscur.onegameslink.com/live/html5/desktop/bundles/*",
+                "https://cachedownload-betconstruct.onegameslink.com/live/html5/mobile/bundles/*"
+            ],
+            "all_frames": true,
+            "js": [
+                "content/contentScript.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "permissions": [
+        "storage"
+    ]
+}

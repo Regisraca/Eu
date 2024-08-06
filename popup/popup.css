@@ -1,0 +1,140 @@
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #848561, #8d9461, #848561);
+}
+
+img {
+	width: auto;
+	height: auto;
+}
+
+#opcao {
+	height: 100%;
+	width: 100%;
+	font-size: 1.0em;
+	color: #fff;
+	justify-content: center;
+	text-align: center;
+	display: flex;
+	margin: 3%;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+
+#radio {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: top;
+	width: 10%;
+}
+
+#textoRadio {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: top;
+	width: 90%;
+}
+
+span {
+	color: #fff;
+	font-size: 1.0em;
+	justify-content: center;
+	text-align: center;
+	display: flex;
+	margin: 3%;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+
+p {
+	color: #fff;
+	font-size: 1.0em;
+	justify-content: center;
+	display: flex;
+	margin: 3%;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+
+li {
+	color: #fff;
+	font-size: 1.0em;
+	justify-content: center;
+	display: flex;
+	margin: 1%;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+
+label {
+	color: #fff;
+	font-size: 2.0em;
+	justify-content: center;
+	text-align: center;
+	display: flex;
+	margin: 20px;
+	font-weight: bold;
+}
+
+input {
+	width: 80%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: auto;
+	padding: auto;
+	border: #7e7c09;
+	/* outline: none; */
+	border-radius: 5px;
+}
+
+select {
+	width: 80%;
+	height: 20px;
+	margin: 15px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #7e7c09;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 15px;
+	outline: none;
+	border: none;
+	border-radius: 15px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+
+button {
+	width: 60%;
+	height: 30px;
+	margin: 15px auto;
+	justify-content: center;
+	display: block;
+	color: #ffffff;
+	background: #7e7c09;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 15px;
+	outline: none;
+	border: none;
+	border-radius: 15px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+
+button:hover {
+	background: #474607;
+}
