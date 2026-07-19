@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Depends, status
+from fastapi import FastAPI, APIRouter, HTTPException, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
@@ -429,7 +429,7 @@ async def create_booking(
 @api_router.get("/bookings", response_model=List[BookingResponse])
 async def get_bookings(
     current_user: dict = Depends(get_current_user),
-    status: Optional[str] = None
+    status_filter: Optional[str] = None
 ):
     query = {}
     
@@ -440,8 +440,8 @@ async def get_bookings(
         query["barber_id"] = str(current_user["_id"])
     # Admin sees all bookings
     
-    if status:
-        query["status"] = status
+    if status_filter:
+        query["status"] = status_filter
     
     bookings = await db.bookings.find(query).sort("date", -1).to_list(100)
     
@@ -468,7 +468,7 @@ async def get_bookings(
 @api_router.patch("/bookings/{booking_id}/status")
 async def update_booking_status(
     booking_id: str,
-    status: str,
+    status: str,  # noqa: F811 - query param, distinct from `from fastapi import status`
     current_user: dict = Depends(get_current_user)
 ):
     booking = await db.bookings.find_one({"_id": ObjectId(booking_id)})
