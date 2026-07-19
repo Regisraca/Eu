@@ -37,13 +37,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (loading) return;
 
-    const inAuthGroup = segments[0] === '(auth)' || segments[0] === 'login' || segments[0] === 'register';
+    const firstSegment = segments[0];
+    // "In auth flow" means: welcome/root screen, login screen, or register screen.
+    // These are the ONLY places a logged-in user should be redirected AWAY from.
+    const inAuthFlow =
+      !firstSegment || firstSegment === 'login' || firstSegment === 'register';
 
-    if (!user && !inAuthGroup) {
-      // Redirect to login if not authenticated
+    if (!user && !inAuthFlow) {
+      // Not logged in and trying to access a protected route -> go to login
       router.replace('/login');
-    } else if (user) {
-      // Redirect based on role
+    } else if (user && inAuthFlow) {
+      // Logged in but sitting on welcome/login/register -> route to role home once
       if (user.role === 'admin') {
         router.replace('/(admin)/dashboard');
       } else if (user.role === 'barber') {
@@ -52,6 +56,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         router.replace('/(client)/home');
       }
     }
+    // Otherwise: logged-in user is inside their role area (or /booking) — let them navigate freely.
   }, [user, loading, segments]);
 
   const loadStoredAuth = async () => {
