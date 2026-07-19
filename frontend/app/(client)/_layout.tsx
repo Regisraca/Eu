@@ -31,13 +31,6 @@ export default function ClientLayout() {
         }}
       />
       <Tabs.Screen
-        name="scan"
-        options={{
-          title: 'Escanear',
-          tabBarIcon: ({ color, size }) => <Ionicons name="qr-code" size={size} color={color} />,
-        }}
-      />
-      <Tabs.Screen
         name="profile"
         options={{
           title: 'Perfil',
